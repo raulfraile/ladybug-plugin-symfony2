@@ -1,0 +1,13 @@
+{
+    "name": "raulfraile/ladybug-plugin-symfony2",
+    "type": "ladybug-plugin",
+    "description": "Symfony2 plugin for ladybug",
+    "keywords": ["ladybug", "plugin"],
+    "license": "MIT",
+    "require": {
+        "raulfraile/ladybug-installer": "dev-master"
+    },
+    "extra": {
+        "ladybug_name": "Symfony2"
+    }
+}

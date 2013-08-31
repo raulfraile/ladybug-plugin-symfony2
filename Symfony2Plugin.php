@@ -14,7 +14,7 @@ namespace Ladybug\Plugin\Symfony2;
 
 use Ladybug\Plugin\PluginInterface;
 
-class SymfonyPlugin implements PluginInterface
+class Symfony2Plugin implements PluginInterface
 {
     public static function getConfigFile()
     {

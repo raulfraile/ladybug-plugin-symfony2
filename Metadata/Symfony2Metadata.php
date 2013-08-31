@@ -15,7 +15,7 @@ namespace Ladybug\Plugin\Symfony2\Metadata;
 use Ladybug\Metadata\MetadataInterface;
 use Ladybug\Metadata\AbstractMetadata;
 
-class SymfonyMetadata extends AbstractMetadata
+class Symfony2Metadata extends AbstractMetadata
 {
 
     const ICON = 'symfony2';

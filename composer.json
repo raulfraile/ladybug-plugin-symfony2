@@ -7,7 +7,18 @@
     "require": {
         "raulfraile/ladybug-installer": "dev-master"
     },
+    "require-dev": {
+        "mockery/mockery": "0.8.0",
+        "raulfraile/ladybug": "dev-master"
+    },
     "extra": {
         "ladybug_name": "Symfony2"
-    }
+    },
+    "autoload": {
+        "psr-0": {
+            "Ladybug\\Plugin\\Symfony2\\": ""
+        }
+    },
+    "target-dir": "Ladybug/Plugin/Symfony2",
+    "minimum-stability": "dev"
 }

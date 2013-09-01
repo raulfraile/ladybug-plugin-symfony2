@@ -23,7 +23,7 @@ class Symfony2Metadata extends AbstractMetadata
 
     public function __construct()
     {
-        $this->version = '2.2';
+        $this->version = '2.3';
 
         // determine symfony version
         if (class_exists('Symfony\\Component\\HttpKernel\\Kernel')) {

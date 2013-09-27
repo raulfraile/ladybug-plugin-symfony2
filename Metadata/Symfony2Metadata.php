@@ -31,14 +31,14 @@ class Symfony2Metadata extends AbstractMetadata
         }
     }
 
-    public function hasMetadata($id, $type = MetadataInterface::TYPE_CLASS)
+    public function supports($id, $type = MetadataInterface::TYPE_CLASS)
     {
         return MetadataInterface::TYPE_CLASS === $type && $this->isNamespace($id, 'Symfony');
     }
 
-    public function getMetadata($id, $type = MetadataInterface::TYPE_CLASS)
+    public function get($id, $type = MetadataInterface::TYPE_CLASS)
     {
-        if ($this->hasMetadata($id, $type)) {
+        if ($this->supports($id, $type)) {
             return array(
                 'help_link' => $this->generateHelpLinkUrl(self::URL, array(
                     '%version%' => $this->version,

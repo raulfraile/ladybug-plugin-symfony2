@@ -19,9 +19,9 @@ class SymfonyMetadataTest extends \PHPUnit_Framework_TestCase
     {
         $className = 'Symfony\HttpFoundation\Request';
 
-        $this->assertTrue($this->metadata->hasMetadata($className));
+        $this->assertTrue($this->metadata->supports($className));
 
-        $metadata = $this->metadata->getMetadata($className);
+        $metadata = $this->metadata->get($className);
         $this->assertArrayHasKey('help_link', $metadata);
         $this->assertArrayHasKey('icon', $metadata);
         $this->assertArrayHasKey('version', $metadata);
@@ -31,9 +31,9 @@ class SymfonyMetadataTest extends \PHPUnit_Framework_TestCase
     {
         $className = 'Test\Test';
 
-        $this->assertFalse($this->metadata->hasMetadata($className));
+        $this->assertFalse($this->metadata->supports($className));
 
-        $metadata = $this->metadata->getMetadata($className);
+        $metadata = $this->metadata->get($className);
         $this->assertEmpty($metadata);
     }
 

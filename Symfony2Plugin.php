@@ -21,4 +21,15 @@ class Symfony2Plugin implements PluginInterface
         return __DIR__ . '/Config/services.xml';
     }
 
+    /**
+     * Registers custom helpers
+     * @static
+     * @return array
+     */
+    public static function registerHelpers()
+    {
+        return array();
+    }
+
+
 }

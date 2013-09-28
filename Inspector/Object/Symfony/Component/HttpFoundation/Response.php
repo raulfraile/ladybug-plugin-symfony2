@@ -17,7 +17,7 @@ use Ladybug\Inspector\InspectorInterface;
 use Ladybug\Inspector\InspectorDataWrapper;
 use Ladybug\Type;
 
-class Request extends AbstractInspector
+class Response extends AbstractInspector
 {
     public function accept(InspectorDataWrapper $data)
     {

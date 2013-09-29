@@ -14,22 +14,22 @@ namespace Ladybug\Plugin\Symfony2\Inspector\Object\Symfony\Component\HttpFoundat
 
 use Ladybug\Inspector\AbstractInspector;
 use Ladybug\Inspector\InspectorInterface;
-use Ladybug\Inspector\InspectorDataWrapper;
-use Ladybug\Type;
+use Ladybug\Model\VariableWrapper;
+use Ladybug\Plugin\Extra\Type\CodeType;
 
 class Request extends AbstractInspector
 {
-    public function accept(InspectorDataWrapper $data)
+    public function supports(VariableWrapper $data)
     {
-        return InspectorInterface::TYPE_CLASS == $data->getType() && 'Symfony\Component\HttpFoundation\Request' === $data->getId();
+        return VariableWrapper::TYPE_CLASS == $data->getType() && 'Symfony\Component\HttpFoundation\Request' === $data->getId();
     }
 
-    public function getData(InspectorDataWrapper $data)
+    public function get(VariableWrapper $data)
     {
-        /** @var $var Symfony\Component\HttpFoundation\Request */
+        /** @var $var \Symfony\Component\HttpFoundation\Request */
         $var = $data->getData();
 
-        /** @var $code Type\Extended\CodeType */
+        /** @var $code CodeType */
         $code = $this->extendedTypeFactory->factory('code', $this->level);
 
         $code->setLanguage('http');

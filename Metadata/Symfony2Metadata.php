@@ -14,6 +14,7 @@ namespace Ladybug\Plugin\Symfony2\Metadata;
 
 use Ladybug\Metadata\MetadataInterface;
 use Ladybug\Metadata\AbstractMetadata;
+use Ladybug\Model\VariableWrapper;
 
 class Symfony2Metadata extends AbstractMetadata
 {
@@ -31,18 +32,18 @@ class Symfony2Metadata extends AbstractMetadata
         }
     }
 
-    public function supports($id, $type = MetadataInterface::TYPE_CLASS)
+    public function supports(VariableWrapper $data)
     {
-        return MetadataInterface::TYPE_CLASS === $type && $this->isNamespace($id, 'Symfony');
+        return VariableWrapper::TYPE_CLASS === $data->getType() && $this->isNamespace($data->getId(), 'Symfony');
     }
 
-    public function get($id, $type = MetadataInterface::TYPE_CLASS)
+    public function get(VariableWrapper $data)
     {
-        if ($this->supports($id, $type)) {
+        if ($this->supports($data)) {
             return array(
                 'help_link' => $this->generateHelpLinkUrl(self::URL, array(
                     '%version%' => $this->version,
-                    '%class%' => urlencode($id)
+                    '%class%' => urlencode($data->getId())
                 )),
                 'icon' => self::ICON,
                 'version' => $this->version

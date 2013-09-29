@@ -14,22 +14,22 @@ namespace Ladybug\Plugin\Symfony2\Inspector\Object\Symfony\Component\HttpFoundat
 
 use Ladybug\Inspector\AbstractInspector;
 use Ladybug\Inspector\InspectorInterface;
-use Ladybug\Inspector\InspectorDataWrapper;
-use Ladybug\Type;
+use Ladybug\Model\VariableWrapper;
+use Ladybug\Plugin\Extra\Type\CollectionType;
 
 class ParameterBag extends AbstractInspector
 {
-    public function accept(InspectorDataWrapper $data)
+    public function supports(VariableWrapper $data)
     {
-        return InspectorInterface::TYPE_CLASS == $data->getType() && 'Symfony\Component\HttpFoundation\ParameterBag' === $data->getId();
+        return VariableWrapper::TYPE_CLASS == $data->getType() && 'Symfony\Component\HttpFoundation\ParameterBag' === $data->getId();
     }
 
-    public function getData(InspectorDataWrapper $data)
+    public function get(VariableWrapper $data)
     {
-        /** @var $var Symfony\Component\HttpFoundation\ParameterBag */
+        /** @var $var \Symfony\Component\HttpFoundation\ParameterBag */
         $var = $data->getData();
 
-        /** @var $collection Type\Extended\CollectionType */
+        /** @var $collection CollectionType */
         $collection = $this->extendedTypeFactory->factory('collection', $this->level);
 
         $collection->setTitle('Bag');

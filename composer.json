@@ -9,7 +9,7 @@
     },
     "require-dev": {
         "mockery/mockery": "0.8.0",
-        "raulfraile/ladybug": "dev-master",
+        "raulfraile/ladybug": "~1.0.0",
         "symfony/http-foundation": "*"
     },
     "extra": {
